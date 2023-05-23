@@ -15,6 +15,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(jsx?|babel|es6)$/,
+        include: process.cwd(),
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
+      {
         test: /\.vue$/,
         loader: "vue-loader",
         options: {
