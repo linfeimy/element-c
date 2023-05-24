@@ -1,6 +1,7 @@
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -56,5 +57,9 @@ module.exports = {
       filename: "index.html",
       inject: true,
     }),
+    new ESLintPlugin({
+      fix: true,
+      extensions: ['js', 'vue']
+    })
   ],
 };
