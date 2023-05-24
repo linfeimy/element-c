@@ -3,6 +3,8 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
 
+const config = require('./config');
+
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: "./examples/main.js",
@@ -13,8 +15,29 @@ module.exports = {
   devServer: {
     contentBase: "./dist",
   },
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: config.alias,
+    modules: ['node_modules'],
+  },
   module: {
     rules: [
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              compilerOptions: {
+                preserveWhitespace: false,
+              }
+            }
+          },
+          {
+            loader: path.resolve(__dirname, './md-loader/index.js')
+          }
+        ]
+      },
       {
         test: /\.(jsx?|babel|es6)$/,
         include: process.cwd(),
