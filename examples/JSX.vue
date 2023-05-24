@@ -1,8 +1,8 @@
 <script>
 export default {
-  name: "JSX",
+  name: 'JSX',
   data() {
-    return {};
+    return {}
   },
   render() {
     return (
@@ -10,7 +10,7 @@ export default {
         <h1>Babel </h1>
         <h2>This is JSX!</h2>
       </div>
-    );
+    )
   },
-};
+}
 </script>

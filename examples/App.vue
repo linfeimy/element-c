@@ -8,14 +8,14 @@
 <script>
 import JSX from './JSX.vue'
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    JSX
+    JSX,
   },
   data() {
-    return {};
+    return {}
   },
-};
+}
 </script>
 <style>
 #app {
